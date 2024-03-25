@@ -1,0 +1,5 @@
+outputGotten.txt
+tests/misc
+tests/math
+nimcache/
+testresults/
