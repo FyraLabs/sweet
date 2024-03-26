@@ -1,5 +1,6 @@
 import unittest
 import sweet
+import std/complex
 
 test "++ and --":
   var a = 2
@@ -21,3 +22,9 @@ test "and or":
   check true || false
   check !(false || false)
   check 0b10101010 | 0b01010101 == 0b11111111
+
+test "complex almostEqual":
+  check almostEqual[float64](complex(10.0, 20.0), complex(10.000_000_000_00_001, 20.000_000_000_00_001))
+
+test "polar":
+  check polar(10.0, 20.0) == polar(complex(10.0, 20.0))

@@ -8,7 +8,7 @@ you come from another programming language!
 ## Examples
 ```nim
 import sweet
-import std/math
+import std/[math, complex]
 import options
 
 assert false == !true
@@ -60,4 +60,7 @@ assert "Hello, " + "World!" == "Hello, World!"
 assert 'H' + "ello, World!" == "Hello, World!"
 assert "hai" + @["bai"] == @["hai", "bai"]
 assert @["hai"] + @["bai"] == @["hai", "bai"]
+
+assert almostEqual[float64](complex(10.0, 20.0), complex(10.000_000_000_00_001, 20.000_000_000_00_001))
+assert polar(10.0, 20.0) == polar(complex(10.0, 20.0))
 ```
