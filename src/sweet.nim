@@ -55,10 +55,10 @@ template `||`*(x, y: bool): bool =
 func almostEqual*[T](a, b: Complex[T]): bool =
   almostEqual(a.re, b.re) and almostEqual(a.im, b.im)
 
-func polar*(x, y: SomeNumber): tuple[r, phi: float64] =
+func polar*(x, y: SomeNumber): tuple[r: SomeNumber, phi: float64] =
   ## Polar coordinates from (x, y).
   # See `complex.polar()`
-  (r: x^2 + y^2, phi: arctan2(x.float64, y.float64))
+  (r: sqrt(x^2 + y^2), phi: arctan2(y.float64, x.float64))
 
 
 # --- STRSEQ ---
