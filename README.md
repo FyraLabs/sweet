@@ -1,8 +1,10 @@
 # Sweet: 🍬 General syntactic sugar
 
-Sweet is a library that provides syntactic sugar, so it's easier to write code, especially if
-you come from another programming language!
+Sweet is a library that provides syntactic sugar so that it's easier to write code,
+especially if you come from another programming language!
 
+## Suggestions
+You can submit suggestions on [GitHub](https://github.com/FyraLabs/sweet/issues/new?assignees=madonuko&labels=enhancement&projects=&template=suggestions---feature-requests.md&title=%5BSuggestion%5D+).
 ---
 
 ## Examples
