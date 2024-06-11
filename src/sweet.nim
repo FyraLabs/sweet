@@ -4,8 +4,12 @@
 ## you come from another programming language!
 ##
 ## You can submit suggestions on [GitHub](https://github.com/FyraLabs/sweet/issues/new?assignees=madonuko&labels=enhancement&projects=&template=suggestions---feature-requests.md&title=%5BSuggestion%5D+)!
-import std/[options, math, complex, macros, sugar]
-include sweet/math
+import std/[options, complex, macros, sugar]
+export options, sugar
+import sweet/[math, concurrent]
+export math, concurrent
+import fungus, questionable, questionable/results
+export fungus, questionable, results
 
 # --- STRSEQ ---
 template `+`*(x, y: string|char): string =
@@ -39,27 +43,28 @@ func `!`*(expression: bool): bool =
   ## Same as `not …`
   ## 
   ## If `expression` is:
-  ## - string: `expression.len == 0`
-  ## - Option: `expression.isNone`
+  ## - string/openArray: `expression.len == 0`
   ## - SomeNumber: `expression == 0`
-  ## - any: `not (cast[bool](expression))`
   not (expression)
 
 func `!`*(expression: string): bool =
   expression.len == 0
 
-func `!`*[T](expression: Option[T]): bool =
-  expression.is_none
+func `!`*[T](expression: openArray[T]): bool =
+  expression.len == 0
+
+# func `!`*[T](expression: Option[T]): bool =
+#   expression.is_none
 
 func `!`*(expression: SomeNumber): bool =
   expression == 0
 
-template `!`*(expression: untyped): bool =
-  not (cast[bool](expression))
+# template `!`*(expression: untyped): bool =
+#   not (cast[bool](expression))
 
 template `!!`*(expression: untyped): bool =
-  ## Same as `not !expression`
-  not !expression
+  ## Same as `! !expression`
+  ! !expression
 
 macro `?.`*[T](obj: Option[T], attribute: untyped): Option = quote("@") do:
   ## Optional chaining; BUT: operators starting with `?` have a very low precedence level. Use `$.` if you don't want to add `(parentheses)`.
