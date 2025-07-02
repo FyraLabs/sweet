@@ -5,7 +5,9 @@
 ##
 ## You can submit suggestions on [GitHub](https://github.com/FyraLabs/sweet/issues/new?assignees=madonuko&labels=enhancement&projects=&template=suggestions---feature-requests.md&title=%5BSuggestion%5D+)!
 import std/[options, math, complex, macros, sugar]
-include sweet/math
+import sweet/math
+from sweet/ptrMath import ptrMath
+export math, ptrMath
 
 # --- STRSEQ ---
 template `+`*(x, y: string|char): string =
