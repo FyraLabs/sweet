@@ -47,8 +47,8 @@ template `||`*(x, y: bool): bool =
 # template `~`*[T: SomeInteger](x, y: T): T =
 #   x not y
 
-func almostEqual*[T](a, b: Complex[T]): bool =
-  almostEqual(a.re, b.re) and almostEqual(a.im, b.im)
+# func almostEqual*[T](a, b: Complex[T]): bool =
+#   almostEqual(a.re, b.re) and almostEqual(a.im, b.im)
 
 func polar*(x, y: SomeNumber): tuple[r: SomeNumber, phi: float64] =
   ## Polar coordinates from (x, y).
